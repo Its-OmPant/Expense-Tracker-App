@@ -1,0 +1,22 @@
+.expenseItem {
+    width: 50%;
+    margin: 10px auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 30px;
+    background-color: rgb(234 235 210);
+    color: black;
+}
+
+.expDesc {
+    width: 75%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    color: rgb(168, 27, 27);
+}
