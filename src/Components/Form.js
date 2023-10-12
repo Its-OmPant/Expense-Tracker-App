@@ -19,6 +19,7 @@ const Form = (props)=>{
     const formSubmit = (e)=>{
         e.preventDefault();
         let d = {
+            id: Math.round(Math.random() * 100000),
             expDate:new Date(inpDate),
             expTitle:inpTitle,
             expAmount:inpAmount
@@ -33,11 +34,15 @@ const Form = (props)=>{
     }
 
     return (
-       <form onSubmit={formSubmit} className="w-1/2 flex justify-between px-6 my-2 bg-white p-4 rounded-xl ">
-            <input className="p-2 border-2 rounded-lg" type="text" value={inpTitle} placeholder="Enter Expense" onChange={onTitleChange}  />
-            <input className="p-2 border-2 rounded-lg" type="number" value={inpAmount} placeholder="Enter Amount" min={0} step={1} onChange={onAmountChange} />
-            <input className="p-2 border-2 rounded-lg" type="date" value={inpDate} min={0} onChange={onDateChange} />
-            <button type="submit" ><i className="fa-solid fa-circle-plus text-4xl text-sky-700 "></i></button>
+       <form onSubmit={formSubmit} className="w-4/5 my-4 flex flex-col gap-2 sm:w-3/5 lg:w-1/2">
+            <input className="p-2 text-center rounded-md sm:text-lg" type="text" value={inpTitle} placeholder="Enter Expense" onChange={onTitleChange} required />
+
+            <input className="p-2 text-center rounded-md sm:text-lg" type="number" value={inpAmount} placeholder="Enter Amount" min={0} step={1} onChange={onAmountChange} required/>
+
+            <input className="p-2 text-center rounded-md sm:text-lg" type="date" value={inpDate} min={0} onChange={onDateChange} required/>
+            
+            <button type="submit" className="p-2 text-center rounded-md sm:text-lg bg-sky-400" >Add Item</button>
+            <button type="submit" className="hidden" ><i className="fa-solid fa-circle-plus text-4xl text-sky-700 "></i></button>
        </form>
     );
 }

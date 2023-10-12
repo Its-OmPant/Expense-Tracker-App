@@ -1,15 +1,17 @@
 import ExpenseItem from "./ExpenseItem" 
-import Form from "./Form";
 function ExpenseCard({data}){
     return (
-        <div className="w-1/2 h-[500px] px-4 overflow-y-auto ">
+        <div className="w-full flex flex-col gap-3 items-center mt-2 pb-8">
             {
-                data.map(exp=>(
-                    <ExpenseItem 
-                        title={exp.expTitle}
-                        date={exp.expDate}
-                        amount={exp.expAmount} />
-                ))
+                data.map(exp=>{
+                    if (exp.expTitle !== undefined && exp.expAmount !== undefined && exp.expDate)
+                       return <ExpenseItem 
+                            title={exp.expTitle}
+                            date={new Date(exp.expDate)}
+                            amount={exp.expAmount} />
+                    else
+                        return 0
+                })
             }
         </div>
     )
